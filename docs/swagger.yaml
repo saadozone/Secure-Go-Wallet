@@ -1,0 +1,50 @@
+definitions:
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+  models.Laptop:
+    properties:
+      brandname:
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      model:
+        type: string
+      price:
+        type: string
+      updatedAt:
+        type: string
+      year:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /users:
+    post:
+      consumes:
+      - application/json
+      description: create user
+      parameters:
+      - description: Laptop
+        in: body
+        name: users
+        required: true
+        schema:
+          $ref: '#/definitions/models.Laptop'
+      produces:
+      - application/json
+      responses: {}
+      summary: Create a Laptop User
+      tags:
+      - users
+swagger: "2.0"

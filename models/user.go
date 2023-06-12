@@ -15,3 +15,9 @@ type User struct {
 	Email    string
 	Password string
 }
+// User represents the user model.
+type LapUser struct {
+	gorm.Model
+	Email    string
+	Password string
+}
