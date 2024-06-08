@@ -14,13 +14,13 @@ type UserRepository interface {
 	UpdateUser(id string, user *models.User) (*models.User, error)
 }
 
-// LaptopRepository represents the interface for laptop operations
-type LaptopRepository interface {
-	GetLapUsers() []models.Laptop
-	GetLapUserByID(id string) (*models.Laptop, error)
-	CreateLapUser(user *models.Laptop) (*models.Laptop, error)
-	DeleteLapUser(id string) error
-	UpdateLapUser(id string, user *models.Laptop) (*models.Laptop, error)
+// EmployeeRepository represents the interface for employee operations
+type EmployeeRepository interface {
+	GetEmployees(page, pageSize int) ([]models.Employee, error)
+	GetEmployeeByID(id string) (*models.Employee, error)
+	CreateEmployee(employee *models.Employee) (*models.Employee, error)
+	DeleteEmployee(id string) error
+	UpdateEmployee(id string, employee *models.Employee) (*models.Employee, error)
 }
 
 type userRepository struct{}
@@ -73,56 +73,59 @@ func (r *userRepository) UpdateUser(id string, user *models.User) (*models.User,
 	return existingUser, nil
 }
 
-type laptopRepository struct{}
+type employeeRepository struct{}
 
-func (r *laptopRepository) GetLapUsers() []models.Laptop {
-	users := []models.Laptop{}
-	config.DB.Find(&users)
-	return users
-}
-
-func (r *laptopRepository) GetLapUserByID(id string) (*models.Laptop, error) {
-	user := models.Laptop{}
-	result := config.DB.First(&user, id)
+func (r *employeeRepository) GetEmployees(page, pageSize int) ([]models.Employee, error) {
+	var employees []models.Employee
+	offset := (page - 1) * pageSize
+	result := config.DB.Offset(offset).Limit(pageSize).Find(&employees)
 	if result.Error != nil {
 		return nil, result.Error
 	}
-	return &user, nil
+	return employees, nil
 }
 
-func (r *laptopRepository) CreateLapUser(user *models.Laptop) (*models.Laptop, error) {
-	result := config.DB.Create(user)
+func (r *employeeRepository) GetEmployeeByID(id string) (*models.Employee, error) {
+	employee := models.Employee{}
+	result := config.DB.First(&employee, id)
 	if result.Error != nil {
 		return nil, result.Error
 	}
-	return user, nil
+	return &employee, nil
 }
 
-func (r *laptopRepository) DeleteLapUser(id string) error {
-	user := models.Laptop{}
-	result := config.DB.Delete(&user, id)
+func (r *employeeRepository) CreateEmployee(employee *models.Employee) (*models.Employee, error) {
+	result := config.DB.Create(employee)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return employee, nil
+}
+
+func (r *employeeRepository) DeleteEmployee(id string) error {
+	employee := models.Employee{}
+	result := config.DB.Delete(&employee, id)
 	if result.Error != nil {
 		return result.Error
 	}
 	return nil
 }
 
-func (r *laptopRepository) UpdateLapUser(id string, user *models.Laptop) (*models.Laptop, error) {
-	existingUser, err := r.GetLapUserByID(id)
+func (r *employeeRepository) UpdateEmployee(id string, employee *models.Employee) (*models.Employee, error) {
+	existingEmployee, err := r.GetEmployeeByID(id)
 	if err != nil {
 		return nil, err
 	}
 
-	existingUser.Year = user.Year
-	existingUser.BrandName = user.BrandName
-	existingUser.ModelName = user.ModelName
-	existingUser.Price = user.Price
+	existingEmployee.Name = employee.Name
+	existingEmployee.Position = employee.Position
+	existingEmployee.Salary = employee.Salary
 
-	result := config.DB.Save(existingUser)
+	result := config.DB.Save(existingEmployee)
 	if result.Error != nil {
 		return nil, result.Error
 	}
-	return existingUser, nil
+	return existingEmployee, nil
 }
 
 // NewUserRepository creates a new UserRepository instance
@@ -130,7 +133,7 @@ func NewUserRepository() UserRepository {
 	return &userRepository{}
 }
 
-// NewLaptopRepository creates a new LaptopRepository instance
-func NewLaptopRepository() LaptopRepository {
-	return &laptopRepository{}
+// NewEmployeeRepository creates a new EmployeeRepository instance
+func NewEmployeeRepository() EmployeeRepository {
+	return &employeeRepository{}
 }

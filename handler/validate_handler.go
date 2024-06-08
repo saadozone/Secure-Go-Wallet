@@ -11,6 +11,7 @@ import (
 func Validate(c *gin.Context) {
 	user, tokenString, err := services.ValidateService(c)
 	if err != nil {
+
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "Invalid token",
 		})
@@ -18,7 +19,7 @@ func Validate(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"message":      user,
-		"tokenString":  tokenString,
+		"message":     user,
+		"tokenString": tokenString,
 	})
 }

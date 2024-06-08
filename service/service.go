@@ -5,52 +5,68 @@ import (
 	stores "github.com/itsmaheshkariya/gin-gorm-rest/store"
 )
 
-func GetUsers() []models.User {
-	userRepo := stores.NewUserRepository()
-	return userRepo.GetUsers()
+type EmployeeService struct {
+	EmplpoyeeRepository stores.EmployeeRepository
+	UserRepository      stores.UserRepository
 }
 
-func GetUserByID(id string) (*models.User, error) {
+func NewEmployeeService() *EmployeeService {
+	return &EmployeeService{
+		EmplpoyeeRepository: stores.NewEmployeeRepository(),
+		UserRepository:      stores.NewUserRepository(),
+	}
+}
+
+type Service interface {
+	GetEmployees(page, pageSize int) ([]models.Employee, error)
+	GetEmployeeByID(id string) (*models.Employee, error)
+	CreateEmployee(employee *models.Employee) (*models.Employee, error)
+	DeleteEmployee(id string) error
+	UpdateEmployee(id string, employee *models.Employee) (*models.Employee, error)
+	GetUsers() []models.User
+	GetUserByID(id string) (*models.User, error)
+	CreateUser(user *models.User) (*models.User, error)
+	DeleteUser(id string) error
+	UpdateUser(id string, user *models.User) (*models.User, error)
+}
+
+func (s *EmployeeService) GetUsers() []models.User {
+	return s.UserRepository.GetUsers()
+}
+
+func (s *EmployeeService) GetUserByID(id string) (*models.User, error) {
 	userRepo := stores.NewUserRepository()
 	return userRepo.GetUserByID(id)
 }
 
-func CreateUser(user *models.User) (*models.User, error) {
-	userRepo := stores.NewUserRepository()
-	return userRepo.CreateUser(user)
+func (s *EmployeeService) CreateUser(user *models.User) (*models.User, error) {
+	return s.UserRepository.CreateUser(user)
 }
 
-func DeleteUser(id string) error {
-	userRepo := stores.NewUserRepository()
-	return userRepo.DeleteUser(id)
+func (s *EmployeeService) DeleteUser(id string) error {
+	return s.UserRepository.DeleteUser(id)
 }
 
-func UpdateUser(id string, user *models.User) (*models.User, error) {
-	userRepo := stores.NewUserRepository()
-	return userRepo.UpdateUser(id, user)
+func (s *EmployeeService) UpdateUser(id string, user *models.User) (*models.User, error) {
+	return s.UserRepository.UpdateUser(id, user)
 }
 
-func GetLapUsers() []models.Laptop {
-	laptopRepo := stores.NewLaptopRepository()
-	return laptopRepo.GetLapUsers()
+func (s *EmployeeService) GetEmployees(page, pageSize int) ([]models.Employee, error) {
+	return s.EmplpoyeeRepository.GetEmployees(page, pageSize)
 }
 
-func GetLapUserByID(id string) (*models.Laptop, error) {
-	laptopRepo := stores.NewLaptopRepository()
-	return laptopRepo.GetLapUserByID(id)
+func (s *EmployeeService) GetEmployeeByID(id string) (*models.Employee, error) {
+	return s.EmplpoyeeRepository.GetEmployeeByID(id)
 }
 
-func CreateLapUser(user *models.Laptop) (*models.Laptop, error) {
-	laptopRepo := stores.NewLaptopRepository()
-	return laptopRepo.CreateLapUser(user)
+func (s *EmployeeService) CreateEmployee(employee *models.Employee) (*models.Employee, error) {
+	return s.EmplpoyeeRepository.CreateEmployee(employee)
 }
 
-func DeleteLapUser(id string) error {
-	laptopRepo := stores.NewLaptopRepository()
-	return laptopRepo.DeleteLapUser(id)
+func (s *EmployeeService) DeleteEmployee(id string) error {
+	return s.EmplpoyeeRepository.DeleteEmployee(id)
 }
 
-func UpdateLapUser(id string, user *models.Laptop) (*models.Laptop, error) {
-	laptopRepo := stores.NewLaptopRepository()
-	return laptopRepo.UpdateLapUser(id, user)
+func (s *EmployeeService) UpdateEmployee(id string, employee *models.Employee) (*models.Employee, error) {
+	return s.EmplpoyeeRepository.UpdateEmployee(id, employee)
 }

@@ -2,6 +2,7 @@ package services
 
 import (
 	"errors"
+	"fmt"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
@@ -13,22 +14,35 @@ import (
 func ValidateService(c *gin.Context) (*models.User, string, error) {
 	tokenString, err := c.Cookie("Authorization")
 	if err != nil {
-		return nil, "", err
+		return nil, "", errors.New("Token not found in cookie")
 	}
 
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
-		return []byte("SECRET"), nil
+		return []byte(config.GetSecretKey()), nil
 	})
 	if err != nil {
-		return nil, "", err
+		return nil, "", errors.New("Error parsing token: " + err.Error())
 	}
 
-	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-		userID := claims["sub"].(float64)
-		var user models.User
-		config.DB.First(&user, int(userID))
-		return &user, tokenString, nil
+	if !token.Valid {
+		return nil, "", errors.New("Invalid token")
 	}
 
-	return nil, "", errors.New("Invalid token")
+	claims, ok := token.Claims.(jwt.MapClaims)
+	if !ok {
+		return nil, "", errors.New("Invalid token claims")
+	}
+
+	userIDFloat, ok := claims["sub"].(float64)
+	if !ok {
+		return nil, "", errors.New("Invalid user ID in token claims")
+	}
+
+	userID := int(userIDFloat)
+	var user models.User
+	if err := config.DB.First(&user, userID).Error; err != nil {
+		return nil, "", fmt.Errorf("Error retrieving user: %w", err)
+	}
+
+	return &user, tokenString, nil
 }

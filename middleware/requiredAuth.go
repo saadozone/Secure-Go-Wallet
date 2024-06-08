@@ -12,7 +12,6 @@ import (
 )
 
 func RequiredAuth( c *gin.Context){
-	// fmt.Println("i am the middelware")
 
 	// Get the cookie off request
 	tokenString := c.GetHeader("Authorization")
@@ -28,8 +27,7 @@ func RequiredAuth( c *gin.Context){
 			return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])
 		}
 		return ([]byte("SECRET")), nil
-		// key := []byte(viper.GetString("jwt.key"))
-		// return key, nil
+		
 	})
 
 	if err != nil {

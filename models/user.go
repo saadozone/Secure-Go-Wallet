@@ -2,14 +2,12 @@ package models
 
 import "gorm.io/gorm"
 
-type Laptop struct {
+type Employee struct {
 	gorm.Model
-	Year	string		 `json:"year"`
-	BrandName string 	 `json:"brandname"`
-	ModelName string 	 `json:"model"`
-	Price string		 `json:"price"`
+	Name     string  `json:"name"`
+	Position string  `json:"position"`
+	Salary   float64 `json:"salary"`
 }
-
 type User struct {
 	ID       uint   `gorm:"primaryKey"`
 	Email    string
