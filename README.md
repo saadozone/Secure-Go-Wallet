@@ -125,7 +125,7 @@ Headers:
 Add Funds to Wallet Endpoint
 Endpoint for adding funds to a user's wallet.
 
-URL: /wallets/add-funds
+URL: /wallets/topup
 
 Method: POST
 
