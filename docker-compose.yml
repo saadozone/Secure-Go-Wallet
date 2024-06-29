@@ -5,8 +5,8 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5433:5432"  # Adjust host:container port mapping as needed
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
+      POSTGRES_USER: newusername  # Replace with your desired username
+      POSTGRES_PASSWORD: newpassword  # Replace with your desired password
+      POSTGRES_DB: postgres

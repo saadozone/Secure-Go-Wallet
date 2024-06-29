@@ -1,36 +1,52 @@
 package main
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/gin-gonic/gin"
-	"github.com/itsmaheshkariya/gin-gorm-rest/config"
-	handler "github.com/itsmaheshkariya/gin-gorm-rest/handler"
-	"github.com/itsmaheshkariya/gin-gorm-rest/middleware"
-	"github.com/itsmaheshkariya/gin-gorm-rest/routes"
+	"github.com/saadozone/gin-gorm-rest/config"
+	"github.com/saadozone/gin-gorm-rest/internal/handler"
+	"github.com/saadozone/gin-gorm-rest/internal/repository"
+	"github.com/saadozone/gin-gorm-rest/internal/route"
+	"github.com/saadozone/gin-gorm-rest/internal/service"
 )
-// @title Employee API
-// @version 1.0
-// @description This is a sample server for managing employees.
-// @termsOfService http://swagger.io/terms/
 
-// @contact.name API Support
-// @contact.url http://www.swagger.io/support
-// @contact.email support@swagger.io
-
-// @license.name Apache 2.0
-// @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-
-// @host localhost:8080
-// @BasePath /api/v1
 func main() {
-	config.Connect()
+	db := config.Connect() // This now returns *gorm.DB
+
+	userRepository := repository.NewUserRepository(&repository.URConfig{DB: db})
+	walletRepository := repository.NewWalletRepository(&repository.WRConfig{DB: db})
+	passwordResetRepository := repository.NewPasswordResetRepository(&repository.PRConfig{DB: db})
+	sourceOfFundRepository := repository.NewSourceOfFundRepository(&repository.SRConfig{DB: db})
+	transactionRepository := repository.NewTransactionRepository(&repository.TRConfig{DB: db})
+
+	userService := service.NewUserService(&service.USConfig{UserRepository: userRepository})
+	authService := service.NewAuthService(&service.ASConfig{UserRepository: userRepository, PasswordResetRepository: passwordResetRepository})
+	walletService := service.NewWalletService(&service.WSConfig{UserRepository: userRepository, WalletRepository: walletRepository})
+	transactionService := service.NewTransactionService(&service.TSConfig{TransactionRepository: transactionRepository, SourceOfFundRepository: sourceOfFundRepository, WalletRepository: walletRepository})
+	jwtService := service.NewJWTService(&service.JWTSConfig{})
+
+	h := handler.NewHandler(&handler.HandlerConfig{
+		UserService:        userService,
+		AuthService:        authService,
+		WalletService:      walletService,
+		TransactionService: transactionService,
+		JWTService:         jwtService,
+	})
+
+	routes := route.NewRouter(&route.RouterConfig{UserService: userService, JWTService: jwtService})
 
 	router := gin.Default()
+	router.Static("/docs", "./pkg/swaggerui")
+	router.NoRoute(h.NoRoute)
 
-	routes.UserRoute(router)
+	version := os.Getenv("API_VERSION")
+	api := router.Group(fmt.Sprintf("/api/%s", version))
 
-	router.POST("/signup", handler.Signup)
-	router.POST("/login", handler.Login)
-	router.GET("/validate", middleware.RequiredAuth, handler.Validate)
+	routes.Auth(api, h)
+	routes.User(api, h)
+	routes.Transaction(api, h)
 
-	router.Run(":8080")
+	router.Run(":8000")
 }

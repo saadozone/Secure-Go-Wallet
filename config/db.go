@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/itsmaheshkariya/gin-gorm-rest/models"
+	"github.com/saadozone/gin-gorm-rest/internal/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -13,17 +13,20 @@ type DBResult struct {
 	Error  error
 }
 
-func Connect() {
-	db, err := gorm.Open(postgres.Open("postgres://postgres:postgres@localhost:5432/postgres"), &gorm.Config{})
+func Connect() *gorm.DB { 
+
+	db, err := gorm.Open(postgres.Open("postgres://saadbinnoman:saadbinnoman@localhost:5432/postgres"), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
-	err = db.AutoMigrate(&models.User{}, &models.Employee{})
+	err = db.AutoMigrate(&model.User{}, &model.PasswordReset{}, &model.Wallet{}, &model.SourceOfFund{}, &model.Transaction{})
 	if err != nil {
 		panic(err)
 	}
 	DB = db
+	return db 
 }
+
 func GetSecretKey() string {
 	return "your_secret_key_here"
 }
