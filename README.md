@@ -77,7 +77,7 @@ Request Body:
 {
   "amount": 50000,
   "wallet_number": 100001,
-  "description": "Transfer to friend",
+  "description": "Transfer to friend"
 }
 ```
 User Registration Endpoint
