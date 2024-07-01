@@ -65,10 +65,10 @@ ERD DIAGRAM:
 ![image](https://github.com/saadozone/gin-gorm-rest/assets/125872373/3d43f82c-eaac-439f-8e54-aafda33511e6)
 
 API Documentation :
-Transfer Endpoint
+Transfer Endpoint, 
 Endpoint for transferring funds.
 
-URL: /transfer
+URL: /deduct
 
 Method: POST
 
