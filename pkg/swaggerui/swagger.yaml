@@ -4,7 +4,7 @@ info:
   description: |-
     This is a RESTful API of E-Wallet project. This project was built with golang, postgreSQL, and JWT authentication and implement clean architecture.
   contact:
-    email: nabilunited2@gmail.com
+    email: saadunited2@gmail.com
   version: 1.0.0
 servers:
   - url: http://localhost:8000/api/v1
@@ -23,18 +23,18 @@ paths:
       summary: Endpoint to register new user
       description: Endpoint to register new
       requestBody:
-        $ref: '#/components/requestBodies/signUp'
+        $ref: "#/components/requestBodies/signUp"
       responses:
-        '200':
-          $ref: '#/components/responses/signUp'
-        '400':
-          $ref: '#/components/responses/400'
-        '409':
-          $ref: '#/components/responses/409'
-        '422':
-          $ref: '#/components/responses/422'
-        '500':
-          $ref: '#/components/responses/5XX'
+        "200":
+          $ref: "#/components/responses/signUp"
+        "400":
+          $ref: "#/components/responses/400"
+        "409":
+          $ref: "#/components/responses/409"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/5XX"
   /sign-in:
     post:
       tags:
@@ -42,18 +42,18 @@ paths:
       summary: Endpoint to get access token
       description: Endpoint to get access token
       requestBody:
-        $ref: '#/components/requestBodies/signIn'
+        $ref: "#/components/requestBodies/signIn"
       responses:
-        '200':
-          $ref: '#/components/responses/signIn'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '422':
-          $ref: '#/components/responses/422'
-        '500':
-          $ref: '#/components/responses/5XX'
+        "200":
+          $ref: "#/components/responses/signIn"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/5XX"
   /forgot-password:
     post:
       tags:
@@ -69,16 +69,16 @@ paths:
               properties:
                 email:
                   type: string
-                  example: nabil@user.com
+                  example: saad@user.com
       responses:
-        '200':
-          $ref: '#/components/responses/forgotPassword'
-        '400':
-          $ref: '#/components/responses/400'
-        '422':
-          $ref: '#/components/responses/422'
-        '500':
-          $ref: '#/components/responses/5XX'
+        "200":
+          $ref: "#/components/responses/forgotPassword"
+        "400":
+          $ref: "#/components/responses/400"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/5XX"
   /reset-password:
     post:
       tags:
@@ -102,14 +102,14 @@ paths:
                   type: string
                   example: 12345
       responses:
-        '200':
-          $ref: '#/components/responses/resetPassword'
-        '400':
-          $ref: '#/components/responses/400'
-        '422':
-          $ref: '#/components/responses/422'
-        '500':
-          $ref: '#/components/responses/5XX'
+        "200":
+          $ref: "#/components/responses/resetPassword"
+        "400":
+          $ref: "#/components/responses/400"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/5XX"
   /profiles:
     get:
       tags:
@@ -117,16 +117,16 @@ paths:
       summary: Endpoint to get user details
       description: Endpoint to get user details
       responses:
-        '200':
-          $ref: '#/components/responses/profiles'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '422':
-          $ref: '#/components/responses/422'
-        '500':
-          $ref: '#/components/responses/5XX'
+        "200":
+          $ref: "#/components/responses/profiles"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/5XX"
       security:
         - bearerAuth: []
   /transactions:
@@ -180,16 +180,16 @@ paths:
             type: integer
             default: 1
       responses:
-        '200':
-          $ref: '#/components/responses/transaction'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '422':
-          $ref: '#/components/responses/422'
-        '500':
-          $ref: '#/components/responses/5XX'
+        "200":
+          $ref: "#/components/responses/transaction"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/5XX"
       security:
         - bearerAuth: []
   /top-up:
@@ -199,18 +199,18 @@ paths:
       summary: Endpoint to top up money
       description: Endpoint to top up money
       requestBody:
-        $ref: '#/components/requestBodies/topUp'
+        $ref: "#/components/requestBodies/topUp"
       responses:
-        '200':
-          $ref: '#/components/responses/topUp'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '422':
-          $ref: '#/components/responses/422'
-        '500':
-          $ref: '#/components/responses/5XX'
+        "200":
+          $ref: "#/components/responses/topUp"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/5XX"
       security:
         - bearerAuth: []
   /transfer:
@@ -220,18 +220,18 @@ paths:
       summary: Endpoint to transfer money to other user
       description: Endpoint to transfer money to other user
       requestBody:
-        $ref: '#/components/requestBodies/transfer'
+        $ref: "#/components/requestBodies/transfer"
       responses:
-        '200':
-          $ref: '#/components/responses/transfer'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '422':
-          $ref: '#/components/responses/422'
-        '500':
-          $ref: '#/components/responses/5XX'
+        "200":
+          $ref: "#/components/responses/transfer"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/5XX"
       security:
         - bearerAuth: []
 components:
@@ -267,7 +267,7 @@ components:
           type: string
           example: "2022-09-09T13:01:23.11364106+07:00"
         user:
-          $ref: '#/components/schemas/user'
+          $ref: "#/components/schemas/user"
     wallet:
       type: object
       properties:
@@ -284,7 +284,7 @@ components:
           type: integer
           example: 100000
         user:
-          $ref: '#/components/schemas/user'
+          $ref: "#/components/schemas/user"
     sourceOfFund:
       type: object
       properties:
@@ -305,17 +305,17 @@ components:
           example: 1
           nullable: true
         sourceOfFund:
-          $ref: '#/components/schemas/sourceOfFund'
+          $ref: "#/components/schemas/sourceOfFund"
         user_id:
           type: integer
           example: 1
         user:
-          $ref: '#/components/schemas/user'
+          $ref: "#/components/schemas/user"
         destination_id:
           type: integer
           example: 1
         wallet:
-          $ref: '#/components/schemas/wallet'
+          $ref: "#/components/schemas/wallet"
         amount:
           type: integer
           example: 10000
@@ -350,10 +350,10 @@ components:
           example: user@example.com
         wallet:
           type: string
-          example: '100005'
+          example: "100005"
         token:
           type: string
-          example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJTRUEgTGFicyBJRCIsImV4cCI6MTY2MjY5NTI5OCwiaWF0IjoxNjYyNjk0Mzk4LCJ1c2VyX2lkIjo1fQ.PtqPY9YtbcwDkqbMsL37Q68WNFkvUfelcKevPRSGr6U'
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJTRUEgTGFicyBJRCIsImV4cCI6MTY2MjY5NTI5OCwiaWF0IjoxNjYyNjk0Mzk4LCJ1c2VyX2lkIjo1fQ.PtqPY9YtbcwDkqbMsL37Q68WNFkvUfelcKevPRSGr6U"
     meta:
       type: object
       properties:
@@ -376,7 +376,7 @@ components:
             properties:
               email:
                 type: string
-                example: nabil@user.com
+                example: saad@user.com
               password:
                 type: string
                 example: 12345
@@ -448,9 +448,9 @@ components:
             type: object
             properties:
               meta:
-                $ref: '#/components/schemas/meta'
+                $ref: "#/components/schemas/meta"
               data:
-                $ref: '#/components/schemas/accessToken'
+                $ref: "#/components/schemas/accessToken"
     signUp:
       description: register success
       content:
@@ -459,9 +459,9 @@ components:
             type: object
             properties:
               meta:
-                $ref: '#/components/schemas/meta'
+                $ref: "#/components/schemas/meta"
               data:
-                $ref: '#/components/schemas/accessToken'
+                $ref: "#/components/schemas/accessToken"
     forgotPassword:
       description: forgot password success
       content:
@@ -470,13 +470,13 @@ components:
             type: object
             properties:
               meta:
-                $ref: '#/components/schemas/meta'
+                $ref: "#/components/schemas/meta"
               data:
                 type: object
                 properties:
                   email:
                     type: string
-                    example: nabil@user.com
+                    example: saad@user.com
                   token:
                     type: string
                     example: M78iHCuRkD
@@ -488,7 +488,7 @@ components:
             type: object
             properties:
               meta:
-                $ref: '#/components/schemas/meta'
+                $ref: "#/components/schemas/meta"
               data:
                 type: object
                 properties:
@@ -500,7 +500,7 @@ components:
                     example: brondol
                   email:
                     type: string
-                    example: nabil@user.com
+                    example: saad@user.com
     profiles:
       description: get user detail success
       content:
@@ -509,7 +509,7 @@ components:
             type: object
             properties:
               meta:
-                $ref: '#/components/schemas/meta'
+                $ref: "#/components/schemas/meta"
               data:
                 type: object
                 properties:
@@ -521,7 +521,7 @@ components:
                     example: brondol
                   email:
                     type: string
-                    example: nabil@user.com
+                    example: saad@user.com
                   wallet:
                     type: object
                     properties:
@@ -542,7 +542,7 @@ components:
             type: object
             properties:
               meta:
-                $ref: '#/components/schemas/meta'
+                $ref: "#/components/schemas/meta"
               data:
                 type: object
                 properties:
@@ -623,7 +623,7 @@ components:
             type: object
             properties:
               meta:
-                $ref: '#/components/schemas/meta'
+                $ref: "#/components/schemas/meta"
               data:
                 type: object
                 properties:
@@ -659,7 +659,7 @@ components:
             type: object
             properties:
               meta:
-                $ref: '#/components/schemas/meta'
+                $ref: "#/components/schemas/meta"
               data:
                 type: object
                 properties:
@@ -693,7 +693,7 @@ components:
                   updated_at:
                     type: string
                     example: "2022-09-09T13:01:23.11364106+07:00"
-    '400':
+    "400":
       description: Bad request.
       content:
         application/json:
@@ -715,7 +715,7 @@ components:
               error:
                 type: string
                 example: bad request.
-    '401':
+    "401":
       description: Unauthorized.
       content:
         application/json:
@@ -737,7 +737,7 @@ components:
               error:
                 type: string
                 example: unauthorized
-    '404':
+    "404":
       description: Not found.
       content:
         application/json:
@@ -759,7 +759,7 @@ components:
               error:
                 type: string
                 example: not found
-    '409':
+    "409":
       description: Conflict.
       content:
         application/json:
@@ -781,7 +781,7 @@ components:
               error:
                 type: string
                 example: the request could not be processed because of conflict in the request
-    '422':
+    "422":
       description: Validation error
       content:
         application/json:
@@ -805,7 +805,7 @@ components:
                 items:
                   type: string
                 example: ["Name required", "Email required"]
-    '5XX':
+    "5XX":
       description: unexpected error.
       content:
         application/json:

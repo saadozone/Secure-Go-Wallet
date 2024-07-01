@@ -55,7 +55,7 @@ package service
 // 	userService := NewUserService(&USConfig{UserRepository: userRepository, WalletRepository: walletRepository})
 
 // 	t.Run("test success get user", func(t *testing.T) {
-// 		userRepository.Mock.On("FindById", 1).Return(&model.User{ID: 1, Name: "nabil", Email: "nabil@user.com", Password: "12345"}, nil).Once()
+// 		userRepository.Mock.On("FindById", 1).Return(&model.User{ID: 1, Name: "saad", Email: "saad@user.com", Password: "12345"}, nil).Once()
 
 // 		input := &dto.UserRequestParams{}
 // 		input.UserID = 1
@@ -63,8 +63,8 @@ package service
 
 // 		assert.Nil(t, err)
 // 		assert.Equal(t, uint(input.UserID), user.ID)
-// 		assert.Equal(t, "nabil", user.Name)
-// 		assert.Equal(t, "nabil@user.com", user.Email)
+// 		assert.Equal(t, "saad", user.Name)
+// 		assert.Equal(t, "saad@user.com", user.Email)
 // 	})
 
 // 	t.Run("test error db when get user", func(t *testing.T) {
@@ -88,25 +88,25 @@ package service
 // 	userService := NewUserService(&USConfig{UserRepository: userRepository, WalletRepository: walletRepository})
 
 // 	t.Run("test success create user", func(t *testing.T) {
-// 		userRepository.Mock.On("FindByEmail", "nabil@user.com").Return(&model.User{}, nil).Once()
-// 		userRepository.Mock.On("Save", mock.Anything).Return(&model.User{ID: 1, Name: "nabil", Email: "nabil@user.com", Password: "$2a$04$Zw.U9pmOuDXif7bQ2hwVBOWkV3HOMDM6sdzetwtTrucoYWseqtYje"}, nil).Once()
+// 		userRepository.Mock.On("FindByEmail", "saad@user.com").Return(&model.User{}, nil).Once()
+// 		userRepository.Mock.On("Save", mock.Anything).Return(&model.User{ID: 1, Name: "saad", Email: "saad@user.com", Password: "$2a$04$Zw.U9pmOuDXif7bQ2hwVBOWkV3HOMDM6sdzetwtTrucoYWseqtYje"}, nil).Once()
 
 // 		input := &dto.RegisterRequestBody{}
-// 		input.Name = "nabil"
-// 		input.Email = "nabil@user.com"
+// 		input.Name = "saad"
+// 		input.Email = "saad@user.com"
 // 		input.Password = "12345"
 // 		user, err := userService.CreateUser(input)
 
 // 		assert.Nil(t, err)
 // 		assert.Equal(t, uint(1), user.ID)
-// 		assert.Equal(t, "nabil", user.Name)
-// 		assert.Equal(t, "nabil@user.com", user.Email)
+// 		assert.Equal(t, "saad", user.Name)
+// 		assert.Equal(t, "saad@user.com", user.Email)
 // 	})
 
 // 	t.Run("test error email not valid when create user", func(t *testing.T) {
 // 		input := &dto.RegisterRequestBody{}
-// 		input.Name = "nabil"
-// 		input.Email = "nabil.com"
+// 		input.Name = "saad"
+// 		input.Email = "saad.com"
 // 		input.Password = "12345"
 // 		user, err := userService.CreateUser(input)
 
@@ -118,11 +118,11 @@ package service
 // 	})
 
 // 	t.Run("test error db find user when create user", func(t *testing.T) {
-// 		userRepository.Mock.On("FindByEmail", "nabil@user.com").Return(&model.User{}, errors.New("something went wrong")).Once()
+// 		userRepository.Mock.On("FindByEmail", "saad@user.com").Return(&model.User{}, errors.New("something went wrong")).Once()
 
 // 		input := &dto.RegisterRequestBody{}
-// 		input.Name = "nabil"
-// 		input.Email = "nabil@user.com"
+// 		input.Name = "saad"
+// 		input.Email = "saad@user.com"
 // 		input.Password = "12345"
 // 		user, err := userService.CreateUser(input)
 
@@ -133,34 +133,34 @@ package service
 // 	})
 
 // 	t.Run("test error user already exists when create user", func(t *testing.T) {
-// 		userRepository.Mock.On("FindByEmail", "nabil@user.com").Return(&model.User{ID: 1, Name: "nabil", Email: "nabil@user.com", Password: "12345"}, nil).Once()
+// 		userRepository.Mock.On("FindByEmail", "saad@user.com").Return(&model.User{ID: 1, Name: "saad", Email: "saad@user.com", Password: "12345"}, nil).Once()
 
 // 		input := &dto.RegisterRequestBody{}
-// 		input.Name = "nabil"
-// 		input.Email = "nabil@user.com"
+// 		input.Name = "saad"
+// 		input.Email = "saad@user.com"
 // 		input.Password = "12345"
 // 		user, err := userService.CreateUser(input)
 
 // 		assert.NotNil(t, err)
 // 		assert.Equal(t, &custom_error.UserAlreadyExistsError{}, err)
 // 		assert.Equal(t, uint(1), user.ID)
-// 		assert.Equal(t, "nabil", user.Name)
-// 		assert.Equal(t, "nabil@user.com", user.Email)
+// 		assert.Equal(t, "saad", user.Name)
+// 		assert.Equal(t, "saad@user.com", user.Email)
 // 	})
 
 // 	t.Run("test error db save user when create user", func(t *testing.T) {
-// 		userRepository.Mock.On("FindByEmail", "nabil@user.com").Return(&model.User{}, nil).Once()
-// 		userRepository.Mock.On("Save", mock.Anything).Return(&model.User{ID: 0, Name: "nabil", Email: "nabil@user.com", Password: "$2a$04$Zw.U9pmOuDXif7bQ2hwVBOWkV3HOMDM6sdzetwtTrucoYWseqtYje"}, errors.New("something went wrong")).Once()
+// 		userRepository.Mock.On("FindByEmail", "saad@user.com").Return(&model.User{}, nil).Once()
+// 		userRepository.Mock.On("Save", mock.Anything).Return(&model.User{ID: 0, Name: "saad", Email: "saad@user.com", Password: "$2a$04$Zw.U9pmOuDXif7bQ2hwVBOWkV3HOMDM6sdzetwtTrucoYWseqtYje"}, errors.New("something went wrong")).Once()
 
 // 		input := &dto.RegisterRequestBody{}
-// 		input.Name = "nabil"
-// 		input.Email = "nabil@user.com"
+// 		input.Name = "saad"
+// 		input.Email = "saad@user.com"
 // 		input.Password = "12345"
 // 		user, err := userService.CreateUser(input)
 
 // 		assert.NotNil(t, err)
 // 		assert.Equal(t, uint(0), user.ID)
-// 		assert.Equal(t, "nabil", user.Name)
-// 		assert.Equal(t, "nabil@user.com", user.Email)
+// 		assert.Equal(t, "saad", user.Name)
+// 		assert.Equal(t, "saad@user.com", user.Email)
 // 	})
 // }

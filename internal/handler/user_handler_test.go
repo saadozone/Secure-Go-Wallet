@@ -59,8 +59,8 @@ package handler
 // 			},
 // 			Data: map[string]interface{}{
 // 				"id":    float64(1),
-// 				"name":  "nabil",
-// 				"email": "nabil@user.com",
+// 				"name":  "saad",
+// 				"email": "saad@user.com",
 // 				"wallet": map[string]interface{}{
 // 					"id":      float64(1),
 // 					"number":  "100001",

@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: password_resets; Type: TABLE; Schema: public; Owner: aulianabil
+-- Name: password_resets; Type: TABLE; Schema: public; Owner: saadbin
 --
 
 CREATE TABLE public.password_resets (
@@ -32,10 +32,10 @@ CREATE TABLE public.password_resets (
 );
 
 
-ALTER TABLE public.password_resets OWNER TO aulianabil;
+ALTER TABLE public.password_resets OWNER TO saadbin;
 
 --
--- Name: password_resets_id_seq; Type: SEQUENCE; Schema: public; Owner: aulianabil
+-- Name: password_resets_id_seq; Type: SEQUENCE; Schema: public; Owner: saadbin
 --
 
 CREATE SEQUENCE public.password_resets_id_seq
@@ -46,17 +46,17 @@ CREATE SEQUENCE public.password_resets_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.password_resets_id_seq OWNER TO aulianabil;
+ALTER TABLE public.password_resets_id_seq OWNER TO saadbin;
 
 --
--- Name: password_resets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: aulianabil
+-- Name: password_resets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: saadbin
 --
 
 ALTER SEQUENCE public.password_resets_id_seq OWNED BY public.password_resets.id;
 
 
 --
--- Name: source_of_funds; Type: TABLE; Schema: public; Owner: aulianabil
+-- Name: source_of_funds; Type: TABLE; Schema: public; Owner: saadbin
 --
 
 CREATE TABLE public.source_of_funds (
@@ -65,10 +65,10 @@ CREATE TABLE public.source_of_funds (
 );
 
 
-ALTER TABLE public.source_of_funds OWNER TO aulianabil;
+ALTER TABLE public.source_of_funds OWNER TO saadbin;
 
 --
--- Name: source_of_funds_id_seq; Type: SEQUENCE; Schema: public; Owner: aulianabil
+-- Name: source_of_funds_id_seq; Type: SEQUENCE; Schema: public; Owner: saadbin
 --
 
 CREATE SEQUENCE public.source_of_funds_id_seq
@@ -79,17 +79,17 @@ CREATE SEQUENCE public.source_of_funds_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.source_of_funds_id_seq OWNER TO aulianabil;
+ALTER TABLE public.source_of_funds_id_seq OWNER TO saadbin;
 
 --
--- Name: source_of_funds_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: aulianabil
+-- Name: source_of_funds_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: saadbin
 --
 
 ALTER SEQUENCE public.source_of_funds_id_seq OWNED BY public.source_of_funds.id;
 
 
 --
--- Name: transactions; Type: TABLE; Schema: public; Owner: aulianabil
+-- Name: transactions; Type: TABLE; Schema: public; Owner: saadbin
 --
 
 CREATE TABLE public.transactions (
@@ -106,10 +106,10 @@ CREATE TABLE public.transactions (
 );
 
 
-ALTER TABLE public.transactions OWNER TO aulianabil;
+ALTER TABLE public.transactions OWNER TO saadbin;
 
 --
--- Name: transactions_id_seq; Type: SEQUENCE; Schema: public; Owner: aulianabil
+-- Name: transactions_id_seq; Type: SEQUENCE; Schema: public; Owner: saadbin
 --
 
 CREATE SEQUENCE public.transactions_id_seq
@@ -120,17 +120,17 @@ CREATE SEQUENCE public.transactions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.transactions_id_seq OWNER TO aulianabil;
+ALTER TABLE public.transactions_id_seq OWNER TO saadbin;
 
 --
--- Name: transactions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: aulianabil
+-- Name: transactions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: saadbin
 --
 
 ALTER SEQUENCE public.transactions_id_seq OWNED BY public.transactions.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: aulianabil
+-- Name: users; Type: TABLE; Schema: public; Owner: saadbin
 --
 
 CREATE TABLE public.users (
@@ -141,10 +141,10 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO aulianabil;
+ALTER TABLE public.users OWNER TO saadbin;
 
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: aulianabil
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: saadbin
 --
 
 CREATE SEQUENCE public.users_id_seq
@@ -155,17 +155,17 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.users_id_seq OWNER TO aulianabil;
+ALTER TABLE public.users_id_seq OWNER TO saadbin;
 
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: aulianabil
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: saadbin
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: wallets; Type: TABLE; Schema: public; Owner: aulianabil
+-- Name: wallets; Type: TABLE; Schema: public; Owner: saadbin
 --
 
 CREATE TABLE public.wallets (
@@ -176,10 +176,10 @@ CREATE TABLE public.wallets (
 );
 
 
-ALTER TABLE public.wallets OWNER TO aulianabil;
+ALTER TABLE public.wallets OWNER TO saadbin;
 
 --
--- Name: wallets_id_seq; Type: SEQUENCE; Schema: public; Owner: aulianabil
+-- Name: wallets_id_seq; Type: SEQUENCE; Schema: public; Owner: saadbin
 --
 
 CREATE SEQUENCE public.wallets_id_seq
@@ -190,45 +190,45 @@ CREATE SEQUENCE public.wallets_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.wallets_id_seq OWNER TO aulianabil;
+ALTER TABLE public.wallets_id_seq OWNER TO saadbin;
 
 --
--- Name: wallets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: aulianabil
+-- Name: wallets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: saadbin
 --
 
 ALTER SEQUENCE public.wallets_id_seq OWNED BY public.wallets.id;
 
 
 --
--- Name: password_resets id; Type: DEFAULT; Schema: public; Owner: aulianabil
+-- Name: password_resets id; Type: DEFAULT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.password_resets ALTER COLUMN id SET DEFAULT nextval('public.password_resets_id_seq'::regclass);
 
 
 --
--- Name: source_of_funds id; Type: DEFAULT; Schema: public; Owner: aulianabil
+-- Name: source_of_funds id; Type: DEFAULT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.source_of_funds ALTER COLUMN id SET DEFAULT nextval('public.source_of_funds_id_seq'::regclass);
 
 
 --
--- Name: transactions id; Type: DEFAULT; Schema: public; Owner: aulianabil
+-- Name: transactions id; Type: DEFAULT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.transactions ALTER COLUMN id SET DEFAULT nextval('public.transactions_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: aulianabil
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
--- Name: wallets id; Type: DEFAULT; Schema: public; Owner: aulianabil
+-- Name: wallets id; Type: DEFAULT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.wallets ALTER COLUMN id SET DEFAULT nextval('public.wallets_id_seq'::regclass);
@@ -241,7 +241,7 @@ COPY public.source_of_funds (id, name) FROM stdin;
 
 
 --
--- Data for Name: transactions; Type: TABLE DATA; Schema: public; Owner: aulianabil
+-- Data for Name: transactions; Type: TABLE DATA; Schema: public; Owner: saadbin
 --
 
 COPY public.transactions (id, source_of_fund_id, user_id, destination_id, amount, description, category, created_at, updated_at, deleted_at) FROM stdin;
@@ -276,11 +276,11 @@ COPY public.transactions (id, source_of_fund_id, user_id, destination_id, amount
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: aulianabil
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: saadbin
 --
 
 COPY public.users (id, name, email, password) FROM stdin;
-1	nabil	nabil@user.com	$2a$04$6cp6IBREiRW27La2hkM.uekYT71m/OzGKAW7vzfVRetPZwFPgREC.
+1	saad	saad@user.com	$2a$04$6cp6IBREiRW27La2hkM.uekYT71m/OzGKAW7vzfVRetPZwFPgREC.
 2	mario	mario@user.com	$2a$04$93AZUXoqhOu6TNb481MYke3iDbM8UAzizOHmKSEf36bQtzV3kffwm
 3	gerald	gerald@user.com	$2a$04$dwl4i0hAV/x/OUEbbPB8gufGHLyXhxK7ZSfIREjQ7xcX08OTrtKFW
 4	azmi	azmi@user.com	$2a$04$I0WOe4FMjq/.k9PowmJ7x.1cmBT1vBLNj/L6FBm3IuznHbdwVSPFa
@@ -289,7 +289,7 @@ COPY public.users (id, name, email, password) FROM stdin;
 
 
 --
--- Data for Name: wallets; Type: TABLE DATA; Schema: public; Owner: aulianabil
+-- Data for Name: wallets; Type: TABLE DATA; Schema: public; Owner: saadbin
 --
 
 COPY public.wallets (id, user_id, number, balance) FROM stdin;
@@ -302,42 +302,42 @@ COPY public.wallets (id, user_id, number, balance) FROM stdin;
 
 
 --
--- Name: password_resets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: aulianabil
+-- Name: password_resets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: saadbin
 --
 
 SELECT pg_catalog.setval('public.password_resets_id_seq', 1, false);
 
 
 --
--- Name: source_of_funds_id_seq; Type: SEQUENCE SET; Schema: public; Owner: aulianabil
+-- Name: source_of_funds_id_seq; Type: SEQUENCE SET; Schema: public; Owner: saadbin
 --
 
 SELECT pg_catalog.setval('public.source_of_funds_id_seq', 1, false);
 
 
 --
--- Name: transactions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: aulianabil
+-- Name: transactions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: saadbin
 --
 
 SELECT pg_catalog.setval('public.transactions_id_seq', 27, true);
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: aulianabil
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: saadbin
 --
 
 SELECT pg_catalog.setval('public.users_id_seq', 5, true);
 
 
 --
--- Name: wallets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: aulianabil
+-- Name: wallets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: saadbin
 --
 
 SELECT pg_catalog.setval('public.wallets_id_seq', 5, true);
 
 
 --
--- Name: password_resets password_resets_pkey; Type: CONSTRAINT; Schema: public; Owner: aulianabil
+-- Name: password_resets password_resets_pkey; Type: CONSTRAINT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.password_resets
@@ -345,7 +345,7 @@ ALTER TABLE ONLY public.password_resets
 
 
 --
--- Name: source_of_funds source_of_funds_pkey; Type: CONSTRAINT; Schema: public; Owner: aulianabil
+-- Name: source_of_funds source_of_funds_pkey; Type: CONSTRAINT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.source_of_funds
@@ -353,7 +353,7 @@ ALTER TABLE ONLY public.source_of_funds
 
 
 --
--- Name: transactions transactions_pkey; Type: CONSTRAINT; Schema: public; Owner: aulianabil
+-- Name: transactions transactions_pkey; Type: CONSTRAINT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.transactions
@@ -361,7 +361,7 @@ ALTER TABLE ONLY public.transactions
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: aulianabil
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.users
@@ -369,7 +369,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: wallets wallets_pkey; Type: CONSTRAINT; Schema: public; Owner: aulianabil
+-- Name: wallets wallets_pkey; Type: CONSTRAINT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.wallets
@@ -377,14 +377,14 @@ ALTER TABLE ONLY public.wallets
 
 
 --
--- Name: idx_transactions_deleted_at; Type: INDEX; Schema: public; Owner: aulianabil
+-- Name: idx_transactions_deleted_at; Type: INDEX; Schema: public; Owner: saadbin
 --
 
 CREATE INDEX idx_transactions_deleted_at ON public.transactions USING btree (deleted_at);
 
 
 --
--- Name: password_resets fk_password_resets_user; Type: FK CONSTRAINT; Schema: public; Owner: aulianabil
+-- Name: password_resets fk_password_resets_user; Type: FK CONSTRAINT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.password_resets
@@ -392,7 +392,7 @@ ALTER TABLE ONLY public.password_resets
 
 
 --
--- Name: transactions fk_transactions_source_of_fund; Type: FK CONSTRAINT; Schema: public; Owner: aulianabil
+-- Name: transactions fk_transactions_source_of_fund; Type: FK CONSTRAINT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.transactions
@@ -400,7 +400,7 @@ ALTER TABLE ONLY public.transactions
 
 
 --
--- Name: transactions fk_transactions_user; Type: FK CONSTRAINT; Schema: public; Owner: aulianabil
+-- Name: transactions fk_transactions_user; Type: FK CONSTRAINT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.transactions
@@ -408,7 +408,7 @@ ALTER TABLE ONLY public.transactions
 
 
 --
--- Name: transactions fk_transactions_wallet; Type: FK CONSTRAINT; Schema: public; Owner: aulianabil
+-- Name: transactions fk_transactions_wallet; Type: FK CONSTRAINT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.transactions
@@ -416,7 +416,7 @@ ALTER TABLE ONLY public.transactions
 
 
 --
--- Name: wallets fk_wallets_user; Type: FK CONSTRAINT; Schema: public; Owner: aulianabil
+-- Name: wallets fk_wallets_user; Type: FK CONSTRAINT; Schema: public; Owner: saadbin
 --
 
 ALTER TABLE ONLY public.wallets

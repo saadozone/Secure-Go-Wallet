@@ -83,7 +83,7 @@ package service
 // 		input := &dto.WalletRequestBody{}
 // 		input.UserID = 1
 
-// 		userRepository.Mock.On("FindById", input.UserID).Return(&model.User{ID: 1, Name: "nabil", Email: "nabil@gmail.com", Password: "12345"}, nil).Once()
+// 		userRepository.Mock.On("FindById", input.UserID).Return(&model.User{ID: 1, Name: "saad", Email: "saad@gmail.com", Password: "12345"}, nil).Once()
 // 		walletRepository.Mock.On("FindByUserId", input.UserID).Return(&model.Wallet{}, nil).Once()
 // 		wallet := &model.Wallet{UserID: uint(input.UserID), Number: "100001", Balance: 0}
 // 		walletRepository.Mock.On("Save", wallet).Return(&model.Wallet{ID: 1, UserID: uint(input.UserID), Number: "100001", Balance: 0}, nil).Once()
@@ -126,7 +126,7 @@ package service
 // 	t.Run("test error db find wallet when create wallet", func(t *testing.T) {
 // 		input := &dto.WalletRequestBody{}
 // 		input.UserID = 1
-// 		userRepository.Mock.On("FindById", input.UserID).Return(&model.User{ID: 1, Name: "nabil", Email: "nabil@gmail.com", Password: "12345"}, nil).Once()
+// 		userRepository.Mock.On("FindById", input.UserID).Return(&model.User{ID: 1, Name: "saad", Email: "saad@gmail.com", Password: "12345"}, nil).Once()
 // 		walletRepository.Mock.On("FindByUserId", input.UserID).Return(&model.Wallet{}, errors.New("something went wrong")).Once()
 
 // 		wallet, err := walletService.CreateWallet(input)
@@ -140,7 +140,7 @@ package service
 // 	t.Run("test error wallet already exists when create wallet", func(t *testing.T) {
 // 		input := &dto.WalletRequestBody{}
 // 		input.UserID = 1
-// 		userRepository.Mock.On("FindById", input.UserID).Return(&model.User{ID: 1, Name: "nabil", Email: "nabil@gmail.com", Password: "12345"}, nil).Once()
+// 		userRepository.Mock.On("FindById", input.UserID).Return(&model.User{ID: 1, Name: "saad", Email: "saad@gmail.com", Password: "12345"}, nil).Once()
 // 		walletRepository.Mock.On("FindByUserId", input.UserID).Return(&model.Wallet{ID: 1, UserID: uint(input.UserID), Number: "100001", Balance: 0}, nil).Once()
 
 // 		wallet, err := walletService.CreateWallet(input)
@@ -155,7 +155,7 @@ package service
 // 	t.Run("test error wallet already exists when create wallet", func(t *testing.T) {
 // 		input := &dto.WalletRequestBody{}
 // 		input.UserID = 1
-// 		userRepository.Mock.On("FindById", input.UserID).Return(&model.User{ID: 1, Name: "nabil", Email: "nabil@gmail.com", Password: "12345"}, nil).Once()
+// 		userRepository.Mock.On("FindById", input.UserID).Return(&model.User{ID: 1, Name: "saad", Email: "saad@gmail.com", Password: "12345"}, nil).Once()
 // 		walletRepository.Mock.On("FindByUserId", input.UserID).Return(&model.Wallet{}, nil).Once()
 // 		wallet := &model.Wallet{UserID: uint(input.UserID), Number: "100001", Balance: 0}
 // 		walletRepository.Mock.On("Save", wallet).Return(&model.Wallet{}, errors.New("something went wrong")).Once()
