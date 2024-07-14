@@ -51,7 +51,6 @@ docker exec -it your-project-db-container psql -U saadbinnoman -d postgres
 SELECT * FROM public.source_of_funds;
 
 ```
-
 Here’s a summary of the entities and their relationships:
 
 Entities:
