@@ -5,7 +5,7 @@ Wallet Manager is a robust and efficient application designed to simplify and se
 
 ## Prerequisites 
 - Docker 
-- Docker Compose
+- Docker Compose 
 - PostgreSQL client
 
 ## Getting Started
