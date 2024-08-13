@@ -9,7 +9,7 @@ Wallet Manager is a robust and efficient application designed to simplify and se
 - PostgreSQL client
 
 ## Getting Started
-
+ 
 ### Step 1: Clone the Repository
 Clone this repository to your local machine using:
 ```
