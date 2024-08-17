@@ -14,7 +14,7 @@ Wallet Manager is a robust and efficient application designed to simplify and se
 Clone this repository to your local machine using:
 ```
 git clone https://github.com/saadozone/Secure-Go-Wallet.git
-```
+``` 
 Step 2: Set Up Environment Variables
 Create a .env file in the project root directory and add the following environment variables:
 ```
